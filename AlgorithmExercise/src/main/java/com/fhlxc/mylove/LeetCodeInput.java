@@ -43,5 +43,15 @@ public class LeetCodeInput {
         }
         return result;
     }
+    
+    public static int[] stringToArray(String input) {
+        input = input.substring(1, input.length() - 1);
+        String[] ns = input.split(",");
+        int[] numbers = new int[ns.length];
+        for (int i = 0; i < ns.length; i++) {
+            numbers[i] = Integer.parseInt(ns[i]);
+        }
+        return numbers;
+    }
 
 }
