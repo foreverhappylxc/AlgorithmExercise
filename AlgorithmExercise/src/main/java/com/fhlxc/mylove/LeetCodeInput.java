@@ -28,6 +28,10 @@ public class LeetCodeInput {
         return s;
     }
     
+    public static String stringToString(String input) {
+        return input.substring(1, input.length() - 1);
+    }
+    
     public static List<List<Integer>> stringToLLInteger(String input) {
         List<List<Integer>> result = new ArrayList<>();
         String[] inputs = input.split("],");
