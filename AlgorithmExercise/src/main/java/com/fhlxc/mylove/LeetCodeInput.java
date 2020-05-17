@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
 * @author Xingchao Long
@@ -56,6 +58,36 @@ public class LeetCodeInput {
             numbers[i] = Integer.parseInt(ns[i]);
         }
         return numbers;
+    }
+    
+    public static TreeNode stringToTree(String input) {
+        String[] array = input.substring(1, input.length() - 1).split(",");
+        if (array.length == 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.parseInt(array[0]));
+        TreeNode curr = root;
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        int i = 0;
+        while (!queue.isEmpty()) {
+            curr = queue.poll();
+            i++;
+            if (i < array.length) {
+                if (!array[i].equals("null")) {
+                    curr.left = new TreeNode(Integer.parseInt(array[i]));
+                    queue.add(curr.left);
+                }
+            }
+            i++;
+            if (i < array.length) {
+                if (!array[i].equals("null")) {
+                    curr.right = new TreeNode(Integer.parseInt(array[i]));
+                    queue.add(curr.right);
+                }
+            }
+        }
+        return root;
     }
 
 }
