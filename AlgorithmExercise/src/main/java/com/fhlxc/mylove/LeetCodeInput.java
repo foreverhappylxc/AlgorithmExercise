@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -88,6 +89,13 @@ public class LeetCodeInput {
             }
         }
         return root;
+    }
+    
+    public static List<String> stringToLString(String input) {
+        List<String> list;
+        input = input.substring(2, input.length() - 2);
+        list = Arrays.asList(input.split("\",\""));
+        return list;
     }
 
 }
