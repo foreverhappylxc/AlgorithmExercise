@@ -15,6 +15,9 @@ import com.fhlxc.mylove.LeetCodeInput;
 
 public class LadderLength {
 
+
+    List<Integer> list = new LinkedList<Integer>();
+    
     private boolean oneDiffer(String str1, String str2) {
         int num = 0;
         for (int i = 0; i < str1.length(); i++) {
@@ -44,10 +47,7 @@ public class LadderLength {
     
     private int shortPath(int i, int j, int[][] map) {
         int[] distance = new int[map.length];
-        List<Integer> list = new LinkedList<Integer>();
-        for (int k = 0; k < map.length; k++) {
-            list.add(k + 1);
-        }
+        
         list.remove(Integer.valueOf(i));
         int next = 0;
         for (int k = 0; k < map.length; k++) {
@@ -91,6 +91,10 @@ public class LadderLength {
         }
         int min = Integer.MAX_VALUE;
         int tmp = 0;
+        for (int k = 0; k < map.length; k++) {
+            list.add(k);
+        }
+        list.remove(Integer.valueOf(wordList.indexOf(beginWord)));
         for (String s: wordList) {
             if (oneDiffer(s, beginWord)) {
                 tmp = shortPath(wordList.indexOf(s), wordList.indexOf(endWord), map);
