@@ -10,7 +10,7 @@ import com.fhlxc.mylove.LeetCodeInput;
 * @author Xingchao Long
 * @date 2020年5月18日 上午10:41:53
 * @classname LadderLength
-* @description
+* @description 测试
 */
 
 public class LadderLength {
