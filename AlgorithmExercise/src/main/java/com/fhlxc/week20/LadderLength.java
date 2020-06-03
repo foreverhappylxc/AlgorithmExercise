@@ -28,10 +28,7 @@ public class LadderLength {
                 }
             }
         }
-        if (num == 0) {
-            return false;
-        }
-        return true;
+        return num != 0;
     }
     
     private int findNext(List<Integer> list, int[][] map) {
@@ -49,23 +46,19 @@ public class LadderLength {
         int[] distance = new int[map.length];
         
         list.remove(Integer.valueOf(i));
-        int next = 0;
-        for (int k = 0; k < map.length; k++) {
-            distance[k] = map[i][k];
-        }
+        int next;
+        System.arraycopy(map[i], 0, distance, 0, map.length);
         while (!list.isEmpty()) {
             next = findNext(list, map);
             if (next == -1) {
                 break;
             }
-            for (int k = 0; k < map.length; k++) {
+            for (int k = 0; k < map.length; k++)
                 if (map[next][k] != Integer.MAX_VALUE) {
                     if (distance[next] != Integer.MAX_VALUE) {
                         distance[k] = Math.min(distance[k], distance[next] + map[next][k]);
                     }
                 }
-                
-            }
             list.remove(Integer.valueOf(next));
         }
         return distance[j];

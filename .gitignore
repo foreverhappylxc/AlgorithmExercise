@@ -9,3 +9,4 @@ out/
 *.jar
 .*
 !/.gitignore
+target/

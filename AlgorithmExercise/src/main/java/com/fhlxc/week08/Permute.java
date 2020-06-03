@@ -48,7 +48,7 @@ public class Permute {
         for (Integer i: nums) {
             numbers.add(i);
         }
-        backtrace(new ArrayList<>(), numbers);
+        backtrace(new ArrayList<Integer>(), numbers);
         return result;
     }
 

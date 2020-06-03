@@ -50,7 +50,7 @@ public class PermuteUnique {
         for (Integer i: nums) {
             numbers.add(i);
         }
-        backtrace(new ArrayList<>(), numbers);
+        backtrace(new ArrayList<Integer>(), numbers);
         return result;
     }
     

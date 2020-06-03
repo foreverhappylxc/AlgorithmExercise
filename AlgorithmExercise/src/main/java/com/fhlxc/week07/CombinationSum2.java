@@ -61,7 +61,7 @@ public class CombinationSum2 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-        backTrace(result, new ArrayList<>(), candidates, 0, 0, target);
+        backTrace(result, new ArrayList<Integer>(), candidates, 0, 0, target);
         return result;
     }
 

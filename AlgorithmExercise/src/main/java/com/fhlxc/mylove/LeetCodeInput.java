@@ -3,11 +3,7 @@ package com.fhlxc.mylove;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
 * @author Xingchao Long
@@ -112,6 +108,24 @@ public class LeetCodeInput {
             }
         }
         return out;
+    }
+
+    public static List<Node> stringToADJList(String input) {
+        List<Node> result = new ArrayList<>();
+        input = input.substring(2, input.length() - 2);
+        String[] ns = input.split("], ?\\[");
+        if (ns.length == 0) {
+            return null;
+        }
+        for (int i = 0; i < ns.length; i++) {
+            String[] tmp = ns[i].split(",");
+            Node node = new Node(i + 1);
+            for (int j = 0; j < tmp.length; j++) {
+                node.neighbors.add(new Node(Integer.parseInt(tmp[j])));
+            }
+            result.add(node);
+        }
+        return result;
     }
 
 }
